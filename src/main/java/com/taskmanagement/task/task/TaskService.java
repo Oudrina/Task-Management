@@ -13,7 +13,7 @@ public class TaskService {
     private final TaskRepository taskRepository;
     private final TaskMapper taskMapper;
 
-    //     todo POST TASK
+    //
     public TaskResponse createTask(TaskRequest taskRequest) {
 
         Task createdTask = taskMapper.toEntity(taskRequest);
@@ -23,7 +23,7 @@ public class TaskService {
 
     }
 
-    //  TODO GET ALL TASKS
+    //
     public List<TaskResponse> getTasks() {
         List<Task> tasks = taskRepository.findAll();
         return tasks.stream()
@@ -31,7 +31,7 @@ public class TaskService {
     }
 
 
-//    TODO GET TASK BY ID
+//
     public TaskResponse getTaskById( Long id) {
         Task task = taskRepository.findById(id).orElseThrow(
                 ()->   new TaskNotFoundException("Task with id: " + id + " not found")
@@ -39,7 +39,7 @@ public class TaskService {
      return  taskMapper.toResponse(task);
     }
 
-//   TODO  UPDATE TASK
+//   Comments needed
     @Transactional
     public TaskResponse updateTask( Long id, TaskRequest taskRequest  ) {
 
